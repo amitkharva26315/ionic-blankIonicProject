@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 // import { ActiveSheetsComponent } from '../../components/active-sheets/active-sheets'
 import { ActiveSheetsPage } from '../active-sheets/active-sheets';
 import { AlertsPage } from '../alerts/alerts';
@@ -11,6 +12,7 @@ import { FabPage } from '../fab/fab';
 import { GesturesPage } from '../gestures/gestures';
 import { GridViewPage } from '../grid-view/grid-view';
 import { AllInOnePage } from '../all-in-one/all-in-one';
+import { NavigationPage } from '../navigation/navigation';
 
 @Component({
   selector: 'page-home',
@@ -18,13 +20,16 @@ import { AllInOnePage } from '../all-in-one/all-in-one';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  showName: string;
+  constructor(public navCtrl: NavController, private storage: Storage) {
 
   }
 
   changeView(event, componentName) {
-    // That's right, we're pushing to ourselves!
-    if (componentName == 'ActiveSheets')
+    // That's right, we're pushing to ourselves!    
+    if (componentName == 'Navigation')
+      this.navCtrl.push(NavigationPage);
+    else if (componentName == 'ActiveSheets')
       this.navCtrl.push(ActiveSheetsPage);
     else if (componentName == 'Alerts')
       this.navCtrl.push(AlertsPage);
@@ -44,6 +49,25 @@ export class HomePage {
       this.navCtrl.push(GridViewPage);
     else if (componentName == 'AllInOne')
       this.navCtrl.push(AllInOnePage);
+  }
+
+  ionViewDidLoad() {
+    this.storage.get('name').then((val) => {
+      this.showName = val;
+      console.log('Your name is', val);
+    });
+  }
+
+  setLocalStorage(text) {
+    this.storage.set('name', text);
+  }
+  getLocalStorage() {
+    this.storage.get('name').then((val) => {
+      this.showName = val;
+    });
+  }
+  clearLocalStorage(){
+    this.storage.remove('name');
   }
 
 }

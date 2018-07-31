@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the SmallConceptsPage page.
+ * Generated class for the NavigationDetailsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,20 +10,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-small-concepts',
-  templateUrl: 'small-concepts.html',
+  selector: 'page-navigation-details',
+  templateUrl: 'navigation-details.html',
 })
-export class SmallConceptsPage {
-  public event = {
-    month: '1990-02-19',
-    timeStarts: '07:43',
-    timeEnds: '1990-02-20'
-  }
+export class NavigationDetailsPage {
+  item;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.item = navParams.data.paramitem;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SmallConceptsPage');
+    console.log('ionViewDidLoad NavigationDetailsPage');
   }
 
 }

@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -16,6 +17,8 @@ import { FabPage } from '../pages/fab/fab';
 import { GesturesPage } from '../pages/gestures/gestures';
 import { GridViewPage } from '../pages/grid-view/grid-view';
 import { AllInOnePage } from '../pages/all-in-one/all-in-one';
+import { NavigationPage } from '../pages/navigation/navigation';
+import { NavigationDetailsPage } from '../pages/navigation-details/navigation-details';
 
 //import { ComponentsModule } from '../components/components.module';
 
@@ -32,11 +35,14 @@ import { AllInOnePage } from '../pages/all-in-one/all-in-one';
     FabPage,
     GesturesPage,
     GridViewPage,
-    AllInOnePage
+    AllInOnePage,
+    NavigationPage,
+    NavigationDetailsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,7 +57,9 @@ import { AllInOnePage } from '../pages/all-in-one/all-in-one';
     FabPage,
     GesturesPage,
     GridViewPage,
-    AllInOnePage
+    AllInOnePage,
+    NavigationPage,
+    NavigationDetailsPage
   ],
   providers: [
     StatusBar,

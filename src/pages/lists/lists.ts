@@ -1,28 +1,29 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 /**
- * Generated class for the AllInOnePage page.
+ * Generated class for the ListsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
-  selector: 'page-all-in-one',
-  templateUrl: 'all-in-one.html',
+  selector: 'page-lists',
+  templateUrl: 'lists.html',
 })
-export class AllInOnePage {
+export class ListsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
     this.presentLoading();
-    console.log('ionViewDidLoad AllInOnePage');
+    console.log('ionViewDidLoad ListsPage');
   }
+
 
   items = [
     'Pokémon Yellow',
@@ -45,6 +46,13 @@ export class AllInOnePage {
   ];
 
   itemSelected(item: string) {
+    let toast = this.toastCtrl.create({
+      message: 'Your text is: ' + item,
+      duration: 2000,
+      position: 'bottom'
+    });
+
+    toast.present(toast);
     console.log("Selected Item", item);
   }
 
@@ -55,5 +63,6 @@ export class AllInOnePage {
     });
     loader.present();
   }
+
 
 }

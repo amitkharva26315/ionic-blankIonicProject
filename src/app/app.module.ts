@@ -16,9 +16,14 @@ import { CheckBoxPage } from '../pages/check-box/check-box';
 import { FabPage } from '../pages/fab/fab';
 import { GesturesPage } from '../pages/gestures/gestures';
 import { GridViewPage } from '../pages/grid-view/grid-view';
-import { AllInOnePage } from '../pages/all-in-one/all-in-one';
+import { ListsPage } from '../pages/lists/lists';
 import { NavigationPage } from '../pages/navigation/navigation';
 import { NavigationDetailsPage } from '../pages/navigation-details/navigation-details';
+import { ModalPage } from '../pages/modal/modal';
+import { ModalContentPage } from '../pages/modal-content/modal-content';
+import { ToastPage } from '../pages/toast/toast';
+import { ToolbarPage } from '../pages/toolbar/toolbar';
+import { InnerToolbarPage } from '../pages/inner-toolbar/inner-toolbar';
 
 //import { ComponentsModule } from '../components/components.module';
 
@@ -35,9 +40,14 @@ import { NavigationDetailsPage } from '../pages/navigation-details/navigation-de
     FabPage,
     GesturesPage,
     GridViewPage,
-    AllInOnePage,
+    ListsPage,
     NavigationPage,
-    NavigationDetailsPage
+    NavigationDetailsPage,
+    ModalPage,
+    ModalContentPage,
+    ToastPage,
+    ToolbarPage,
+    InnerToolbarPage
   ],
   imports: [
     BrowserModule,
@@ -57,9 +67,14 @@ import { NavigationDetailsPage } from '../pages/navigation-details/navigation-de
     FabPage,
     GesturesPage,
     GridViewPage,
-    AllInOnePage,
+    ListsPage,
     NavigationPage,
-    NavigationDetailsPage
+    NavigationDetailsPage,
+    ModalPage,
+    ModalContentPage,
+    ToastPage,
+    ToolbarPage,
+    InnerToolbarPage
   ],
   providers: [
     StatusBar,

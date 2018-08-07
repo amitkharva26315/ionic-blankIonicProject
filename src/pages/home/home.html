@@ -81,5 +81,23 @@
       </ion-col>
     </ion-row>
 
+    <ion-row>
+      <ion-col>
+        <button ion-button secondary (click)="changeView($event, 'modals')">Modals View</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button secondary (click)="changeView($event, 'toast')">Toast View</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button secondary (click)="changeView($event, 'toolbar')">Toolbar View</button>
+      </ion-col>
+      <!-- <ion-col>
+        <button ion-button secondary (click)="changeView($event, 'toast')">Toast View</button>
+      </ion-col> -->
+    </ion-row>
+
   </ion-grid>
 </ion-content>

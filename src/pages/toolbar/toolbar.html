@@ -1,0 +1,50 @@
+<!--
+  Generated template for the ToolbarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Header</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <button ion-button secondary (click)="toobarChangeView($event, 0)">Changing Colors toolbar</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button secondary (click)="toobarChangeView($event, 1)">Buttons in toolbar</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button ion-button secondary (click)="toobarChangeView($event, 2)">Segment in toolbar</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button secondary (click)="toobarChangeView($event, 3)">Searchable in toolbar</button>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

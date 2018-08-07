@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-// import { ActiveSheetsComponent } from '../../components/active-sheets/active-sheets'
+// import { ActiveSheetsComponent } from './components/active-sheets/active-sheets'
 import { ActiveSheetsPage } from '../active-sheets/active-sheets';
 import { AlertsPage } from '../alerts/alerts';
 import { SmallConceptsPage } from '../small-concepts/small-concepts';
@@ -11,8 +11,11 @@ import { CheckBoxPage } from '../check-box/check-box';
 import { FabPage } from '../fab/fab';
 import { GesturesPage } from '../gestures/gestures';
 import { GridViewPage } from '../grid-view/grid-view';
-import { AllInOnePage } from '../all-in-one/all-in-one';
+import { ListsPage } from '../lists/lists';
 import { NavigationPage } from '../navigation/navigation';
+import { ModalPage } from '../modal/modal';
+import { ToastPage } from '../toast/toast';
+import { ToolbarPage } from '../toolbar/toolbar';
 
 @Component({
   selector: 'page-home',
@@ -48,7 +51,13 @@ export class HomePage {
     else if (componentName == 'Grid')
       this.navCtrl.push(GridViewPage);
     else if (componentName == 'AllInOne')
-      this.navCtrl.push(AllInOnePage);
+      this.navCtrl.push(ListsPage);
+    else if (componentName == 'modals')
+      this.navCtrl.push(ModalPage);
+    else if (componentName == 'toast')
+      this.navCtrl.push(ToastPage);
+    else if (componentName == 'toolbar')
+      this.navCtrl.push(ToolbarPage);
   }
 
   ionViewDidLoad() {
@@ -66,7 +75,7 @@ export class HomePage {
       this.showName = val;
     });
   }
-  clearLocalStorage(){
+  clearLocalStorage() {
     this.storage.remove('name');
   }
 

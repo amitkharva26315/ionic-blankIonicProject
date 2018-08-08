@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Platform, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ModalContentPage } from '../modal-content/modal-content';
 
 /**

@@ -16,6 +16,7 @@ import { NavigationPage } from '../navigation/navigation';
 import { ModalPage } from '../modal/modal';
 import { ToastPage } from '../toast/toast';
 import { ToolbarPage } from '../toolbar/toolbar';
+import { NativePage } from '../native/native';
 
 @Component({
   selector: 'page-home',
@@ -30,7 +31,9 @@ export class HomePage {
 
   changeView(event, componentName) {
     // That's right, we're pushing to ourselves!    
-    if (componentName == 'Navigation')
+    if (componentName == 'native')
+      this.navCtrl.push(NativePage);
+    else if (componentName == 'Navigation')
       this.navCtrl.push(NavigationPage);
     else if (componentName == 'ActiveSheets')
       this.navCtrl.push(ActiveSheetsPage);
@@ -50,7 +53,7 @@ export class HomePage {
       this.navCtrl.push(GesturesPage);
     else if (componentName == 'Grid')
       this.navCtrl.push(GridViewPage);
-    else if (componentName == 'AllInOne')
+    else if (componentName == 'List')
       this.navCtrl.push(ListsPage);
     else if (componentName == 'modals')
       this.navCtrl.push(ModalPage);

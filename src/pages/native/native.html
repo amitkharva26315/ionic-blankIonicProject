@@ -1,0 +1,29 @@
+<!--
+  Generated template for the NativePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Native</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button primary (click)="nativeView($event,'camera')">Camera</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button primary (click)="nativeView($event,'file')">File</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

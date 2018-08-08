@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
+import { File } from '@ionic-native/file';
+import { FileChooser } from '@ionic-native/file-chooser';
+// import { FileEncryption } from '@ionic-native/file-encryption';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -24,6 +29,9 @@ import { ModalContentPage } from '../pages/modal-content/modal-content';
 import { ToastPage } from '../pages/toast/toast';
 import { ToolbarPage } from '../pages/toolbar/toolbar';
 import { InnerToolbarPage } from '../pages/inner-toolbar/inner-toolbar';
+import { NativePage } from '../pages/native/native';
+import { NativeCameraPage } from '../pages/native-camera/native-camera';
+import { NativeFilePage } from '../pages/native-file/native-file';
 
 //import { ComponentsModule } from '../components/components.module';
 
@@ -47,10 +55,14 @@ import { InnerToolbarPage } from '../pages/inner-toolbar/inner-toolbar';
     ModalContentPage,
     ToastPage,
     ToolbarPage,
-    InnerToolbarPage
+    InnerToolbarPage,
+    NativePage,
+    NativeCameraPage,
+    NativeFilePage
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -74,12 +86,20 @@ import { InnerToolbarPage } from '../pages/inner-toolbar/inner-toolbar';
     ModalContentPage,
     ToastPage,
     ToolbarPage,
-    InnerToolbarPage
+    InnerToolbarPage,
+    NativePage,
+    NativeCameraPage,
+    NativeFilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    File,
+    FileChooser,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
+
+// FileEncryption,

@@ -1,0 +1,152 @@
+<!--
+  Generated template for the NativeFilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>nativeFile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <ion-input type="text" value="" [(ngModel)]="fileURI" placeholder="Enter folder path"></ion-input>
+    </ion-col>
+    <ion-col>
+      <button ion-button primary (click)="checkDir('fileURI')">checkDir from input</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button ion-button primary (click)="chooseFile()">Choose File</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      File URI:{{fileURI}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <b>FreeSpaceInBytes</b>:{{filepaths.FreeSpaceInBytes}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-input type="text" value="" [(ngModel)]="fileOperations.src" placeholder="Source"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-select [(ngModel)]="fileOperations.operation">
+            <ion-option value="createDirT">createDir replace</ion-option>
+            <ion-option value="createDirF">createDir No replace</ion-option>
+            <ion-option value="removeDir">removeDir</ion-option>
+            <ion-option value="moveDir">moveDir</ion-option>
+            <ion-option value="copyDir">copyDir</ion-option>
+            <ion-option value="listDir">listDir</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-input type="text" value="" [(ngModel)]="fileOperations.des" placeholder="Destination"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button ion-button color="secondary" (click)="fileOperationsFunc()">GO</button>
+    </ion-col>
+  </ion-row>
+  
+  <ion-row *ngFor="let l of listDir">
+    <ion-col>
+      {{l}}
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+  <ion-row>
+    <ion-col>
+      <button ion-button primary (click)="EncriptDecriptFile('encript')">Encript Above file</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button primary (click)="EncriptDecriptFile('decript')">Decript Above File</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      applicationDirectory:{{filepaths.applicationDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      applicationStorageDirectory:{{filepaths.applicationStorageDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      dataDirectory:{{filepaths.dataDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      cacheDirectory:{{filepaths.cacheDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      externalApplicationStorageDirectory:{{filepaths.externalApplicationStorageDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      externalDataDirectory:{{filepaths.externalDataDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      externalCacheDirectory:{{filepaths.externalCacheDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      externalRootDirectory:{{filepaths.externalRootDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      tempDirectory:{{filepaths.tempDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      syncedDataDirectory:{{filepaths.syncedDataDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      documentsDirectory:{{filepaths.documentsDirectory}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      sharedDirectory:{{filepaths.sharedDirectory}}
+    </ion-col>
+  </ion-row>
+
+</ion-content>

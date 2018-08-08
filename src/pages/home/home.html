@@ -7,12 +7,19 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button secondary (click)="changeView($event, 'Navigation')">Go To Navigation Page</button>
-  <br/>
+
+  <ion-grid>
+  <ion-row>
+    <ion-col>
+      <button ion-button secondary (click)="changeView($event, 'native')">IONIC NATIVE</button>
+    </ion-col>
+  </ion-row>
   <ion-row>
     <ion-col>
       <button ion-button primary (click)="setLocalStorage('MAX')">Set Local Storage Value to MAX</button>
     </ion-col>
+  </ion-row>
+  <ion-row>
     <ion-col>
       <button ion-button primary (click)="setLocalStorage('AMIT')">Set Local Storage Value to AMIT</button>
     </ion-col>
@@ -21,19 +28,25 @@
     <ion-col>
       <button ion-button primary (click)="getLocalStorage()">Get Local Storage Value</button>
     </ion-col>
+  </ion-row>
+  <ion-row>
     <ion-col>
       <p padding>Name:{{showName}}</p>
     </ion-col>
+  </ion-row>
+  <ion-row>
     <ion-col>
       <button ion-button primary (click)="clearLocalStorage()">Clear Local Storage Value</button>
     </ion-col>
   </ion-row>
+</ion-grid>
   <br/>
-  <p padding>The world is your oyster.</p>
+  <hr>
+  <!-- <p padding>The world is your oyster.</p>
   <p>
     If you get lost, the
     <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  </p> -->
   <ion-grid>
 
     <ion-row>
@@ -77,7 +90,7 @@
         <button ion-button secondary (click)="changeView($event, 'Grid')">Grid View</button>
       </ion-col>
       <ion-col>
-        <button ion-button secondary (click)="changeView($event, 'AllInOne')">AllInOne View</button>
+        <button ion-button secondary (click)="changeView($event, 'List')">List View</button>
       </ion-col>
     </ion-row>
 
@@ -94,9 +107,9 @@
       <ion-col>
         <button ion-button secondary (click)="changeView($event, 'toolbar')">Toolbar View</button>
       </ion-col>
-      <!-- <ion-col>
-        <button ion-button secondary (click)="changeView($event, 'toast')">Toast View</button>
-      </ion-col> -->
+      <ion-col>
+        <button ion-button secondary (click)="changeView($event, 'Navigation')">Parameter in Nav</button>
+      </ion-col>
     </ion-row>
 
   </ion-grid>

@@ -62,30 +62,61 @@ export class NativeFilePage {
 
   fileOperationsFunc() {
     if (this.fileOperations.operation == 'createDirF') {
-      this.file.createDir(this.file.externalDataDirectory, this.fileOperations.src, false)//'Sasur'
+      this.file.createDir(this.file.externalDataDirectory, this.fileOperations.src, false)
         .then(() => this.showToast(this.fileOperations.src + ' Created'))
-        .catch((err) => alert(err));
+        .catch((err) => alert(JSON.stringify(err)));
     } else if (this.fileOperations.operation == 'createDirT') {
-      this.file.createDir(this.file.externalDataDirectory, this.fileOperations.src, true)//'Masi'
+      this.file.createDir(this.file.externalDataDirectory, this.fileOperations.src, true)
         .then(() => this.showToast(this.fileOperations.src + ' Created'))
-        .catch((err) => alert(err));
+        .catch((err) => alert(JSON.stringify(err)));
     } else if (this.fileOperations.operation == 'removeDir') {
-      this.file.removeDir(this.file.externalDataDirectory, this.fileOperations.src)//'Nikad')
+      this.file.removeDir(this.file.externalDataDirectory, this.fileOperations.src)
         .then(() => this.showToast(this.fileOperations.src + ' removed'))
-        .catch((err) => alert(err));
-    } else if (this.fileOperations.operation == 'moveDir') {
-      this.file.moveDir(this.file.externalDataDirectory, this.fileOperations.src, this.file.externalDataDirectory, this.fileOperations.des)//'MoveCopy')//'Haal'
-        .then(() => this.showToast(this.fileOperations.src + ' Moved to ' + this.fileOperations.des))
-        .catch((err) => alert(err));
-    } else if (this.fileOperations.operation == 'copyDir') {
-      this.file.copyDir(this.file.externalDataDirectory, this.fileOperations.src, this.file.externalDataDirectory, this.fileOperations.des)//'Nakal'//'MoveCopy'
-        .then(() => this.showToast(this.fileOperations.src + ' Copied to ' + this.fileOperations.des))
-        .catch((err) => alert(err));
+        .catch((err) => alert(JSON.stringify(err)));
     } else if (this.fileOperations.operation == 'listDir') {
-      this.file.listDir(this.file.externalDataDirectory, this.fileOperations.des)//'Goat')
-        .then((res) => { this.listDir = res; })
-        .catch((err) => alert(err));
+      this.file.listDir(this.file.externalDataDirectory, this.fileOperations.src)
+        .then((res) => { this.listDir = res; this.showToast('directory and files inside :' + this.file.externalDataDirectory + '/' + this.fileOperations.src + ' are listed in page...'); alert(JSON.stringify(res)); })
+        .catch((err) => alert(JSON.stringify(err)));
+    } else if (this.fileOperations.operation == 'rmDirRec') {
+      this.file.removeRecursively(this.file.externalDataDirectory, this.fileOperations.src)
+        .then(() => this.showToast(this.fileOperations.src + ' removed recursively'))
+        .catch((err) => alert(JSON.stringify(err)));
+    } else if (this.fileOperations.operation == 'checkFile') {
+      this.file.checkFile(this.file.externalDataDirectory, this.fileOperations.src)
+        .then(() => this.showToast(this.fileOperations.src + ' file created'))
+        .catch((err) => alert(JSON.stringify(err)));
+    } else if (this.fileOperations.operation == 'createFileT') {
+      this.file.createFile(this.file.externalDataDirectory, this.fileOperations.src, true)
+        .then(() => this.showToast(this.fileOperations.src + ' created'))
+        .catch((err) => alert(JSON.stringify(err)));
+    } else if (this.fileOperations.operation == 'createFileF') {
+      this.file.createFile(this.file.externalDataDirectory, this.fileOperations.src, false)
+        .then(() => this.showToast(this.fileOperations.src + ' created'))
+        .catch((err) => alert(JSON.stringify(err)));
+    } else if (this.fileOperations.operation == 'removeFile') {
+      this.file.removeFile(this.file.externalDataDirectory, this.fileOperations.src)
+        .then(() => this.showToast(this.fileOperations.src + ' removed'))
+        .catch((err) => alert(JSON.stringify(err)));
+    } else if (this.fileOperations.operation == 'writeFile') {
+      this.file.writeFile(this.file.externalDataDirectory, this.fileOperations.src, this.fileOperations.des)//des as text
+        .then(() => this.showToast(this.fileOperations.src + ' removed'))
+        .catch((err) => alert(JSON.stringify(err)));
+    } else if (this.fileOperations.operation == 'writeExistingFile') {
+      this.file.writeExistingFile(this.file.externalDataDirectory, this.fileOperations.src, this.fileOperations.des)//des as text
+        .then(() => this.showToast(this.fileOperations.src + ' removed'))
+        .catch((err) => alert(JSON.stringify(err)));
     }
+
+    /* Not Working properly */
+    // else if (this.fileOperations.operation == 'moveDir') {
+    //   this.file.moveDir(this.file.externalDataDirectory, this.fileOperations.src, this.file.externalDataDirectory, this.fileOperations.des)//'MoveCopy')
+    //     .then(() => this.showToast(this.fileOperations.src + ' Moved to ' + this.fileOperations.des))
+    //     .catch((err) => alert(JSON.stringify(err)));
+    // } else if (this.fileOperations.operation == 'copyDir') {
+    //   this.file.copyDir(this.file.externalDataDirectory, this.fileOperations.src, this.file.externalDataDirectory, this.fileOperations.des)
+    //     .then(() => this.showToast(this.fileOperations.src + ' Copied to ' + this.fileOperations.des))
+    //     .catch((err) => alert(JSON.stringify(err)));
+    // }
   }
 
   checkDir(val) {
@@ -118,7 +149,7 @@ export class NativeFilePage {
         this.fileURI = uri;
         alert("fileURI: " + this.fileURI);
       })
-      .catch(e => alert("error: " + e));
+      .catch(e => alert("error: " + JSON.stringify(e)));
   }
 
   EncriptDecriptFile(action) {

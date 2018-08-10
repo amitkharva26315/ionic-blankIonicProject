@@ -16,7 +16,9 @@
 <ion-content padding>
   <ion-row>
     <ion-col>
-      <ion-input type="text" value="" [(ngModel)]="fileURI" placeholder="Enter folder path"></ion-input>
+      <ion-item>
+        <ion-input type="text" value="" [(ngModel)]="fileURI" placeholder="Enter folder path"></ion-input>
+      </ion-item>
     </ion-col>
     <ion-col>
       <button ion-button primary (click)="checkDir('fileURI')">checkDir from input</button>
@@ -40,7 +42,9 @@
 
   <ion-row>
     <ion-col>
-      <ion-input type="text" value="" [(ngModel)]="fileOperations.src" placeholder="Source"></ion-input>
+      <ion-item>
+        <ion-input type="text" value="" [(ngModel)]="fileOperations.src" placeholder="Source"></ion-input>
+      </ion-item>
     </ion-col>
   </ion-row>
   <ion-row>
@@ -51,9 +55,17 @@
             <ion-option value="createDirT">createDir replace</ion-option>
             <ion-option value="createDirF">createDir No replace</ion-option>
             <ion-option value="removeDir">removeDir</ion-option>
-            <ion-option value="moveDir">moveDir</ion-option>
-            <ion-option value="copyDir">copyDir</ion-option>
+            <!-- <ion-option value="moveDir">moveDir</ion-option>
+            <ion-option value="copyDir">copyDir</ion-option> -->
+            <ion-option value="rmDirRec">Rm Recur Dir</ion-option>
             <ion-option value="listDir">listDir</ion-option>
+            <ion-option value="checkFile">checkFile</ion-option>
+            <ion-option value="createFileT">createFile(replace true)</ion-option>
+            <ion-option value="createFileF">createFile(replace false)</ion-option>
+            <ion-option value="removeFile">removeFile</ion-option>
+            <ion-option value="writeFile">writeFile</ion-option>
+            <ion-option value="writeExistingFile">writeExistingFile</ion-option>
+
           </ion-select>
         </ion-item>
       </ion-list>
@@ -61,7 +73,9 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <ion-input type="text" value="" [(ngModel)]="fileOperations.des" placeholder="Destination"></ion-input>
+      <ion-item>
+        <ion-input type="text" value="" [(ngModel)]="fileOperations.des" placeholder="Destination"></ion-input>
+      </ion-item>
     </ion-col>
   </ion-row>
   <ion-row>
@@ -69,7 +83,7 @@
       <button ion-button color="secondary" (click)="fileOperationsFunc()">GO</button>
     </ion-col>
   </ion-row>
-  
+
   <ion-row *ngFor="let l of listDir">
     <ion-col>
       {{l}}
